@@ -191,6 +191,19 @@ class Controller:
         if(self.getPosition(4)>4000):
             self.setTarget(4,self.getPosition(4)-1000)
 
+    def turnRight(self):
+        self.setRange(2,5000,7000)
+        self.setSpeed(2,1000)
+        self.setTarget(2,7000)
+
+    def turnLeft(self):
+        self.setRange(2,5000,7000)
+        self.setSpeed(2,1000)
+        self.setTarget(2,5000)
+
+    def stopMotion(self):
+        pass
+
     def resetAll(self):
         self.setSpeed(3,1000)
         self.setTarget(3,4000)
@@ -198,6 +211,8 @@ class Controller:
         self.setTarget(4,4000)
         self.setSpeed(0,1000)
         self.setTarget(0,4500)
+        self.setSpeed(2,1000)
+        self.setTarget(2,6000)
 
 
 m = Controller()
@@ -209,10 +224,14 @@ while True:
     if(x == 'w'):
         print("moving forward")
     elif(x == 'a'):
+        m.stopMotion()
+        m.turnLeft()
         print("turn left")
     elif(x == 's'):
         print("moving backward")
     elif(x == 'd'):
+        m.stopMotion()
+        m.turnRight()
         print("turn right")
 
 
@@ -251,8 +270,8 @@ while True:
         print("invalid key")
 
 ''' 
-        0 torso
-        1 wheels backwards and forwards
-        2 wheels left right
-        3 head turning
-        4 head tilting '''
+        0 torso 3 9
+        1 wheels backwards and forwards 5 7
+        2 wheels left right 5 7 
+        3 head turning 4 8
+        4 head tilting 4 8'''
