@@ -204,12 +204,32 @@ class Controller:
     def moveForward(self):
         self.setRange(1,5000,7000)
         self.setSpeed(1,1000)
-        self.setTarget(1,6500)
+        self.setTarget(1,6700)
+
+    def moveForwarder(self):
+        self.setRange(1,5000,7000)
+        self.setSpeed(1,1000)
+        self.setTarget(1,6800)
+
+    def moveForwardest(self):
+        self.setRange(1,5000,7000)
+        self.setSpeed(1,1000)
+        self.setTarget(1,6900)
 
     def moveBackward(self):
         self.setRange(1,5000,7000)
         self.setSpeed(1,1000)
-        self.setTarget(1,5500)
+        self.setTarget(1,5400)
+
+    def moveBackwarder(self):
+        self.setRange(1,5000,7000)
+        self.setSpeed(1,1000)
+        self.setTarget(1,5300)
+
+    def moveBackwardest(self):
+        self.setRange(1,5000,7000)
+        self.setSpeed(1,1000)
+        self.setTarget(1,5200)
 
     def stopMotion(self):
         self.setRange(1,5000,7000)
@@ -230,24 +250,35 @@ class Controller:
 
 
 m = Controller()
-m.resetAll()
+#m.resetAll()
 while True:
     x = input()
-    if(x == 'w'):
+    if(x == 'q'):
         m.moveForward()
-        print("moving forward")
+        print("moving forward 1")
+    elif(x == 'w'):
+        m.moveForwarder()
+        print("moving forward 2")
+    elif(x == 'e'):
+        m.moveForwardest()
+        print("moving forward 3")
     elif(x == 'a'):
-        #m.stopMotion()
         m.turnLeft()
         print("turn left")
-    elif(x == 's'):
+    elif(x == 'z'):
         m.moveBackward()
-        print("moving backward")
+        print("moving backward 1")
+    elif(x == 'x'):
+        m.moveBackwarder()
+        print("moving backward 2")
+    elif(x == 'c'):
+        m.moveBackwardest()
+        print("moving backward 3")
     elif(x == 'd'):
         #m.stopMotion()
         m.turnRight()
         print("turn right")
-    elif(x =='q'):
+    elif(x =='s'):
         m.stopMotion()
         print("stopping")
 
