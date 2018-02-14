@@ -201,51 +201,68 @@ class Controller:
         self.setSpeed(2,1000)
         self.setTarget(2,5000)
 
+    def moveForward(self):
+        self.setRange(1,5000,7000)
+        self.setSpeed(1,1000)
+        self.setTarget(1,6500)
+
+    def moveBackward(self):
+        self.setRange(1,5000,7000)
+        self.setSpeed(1,1000)
+        self.setTarget(1,5500)
+
     def stopMotion(self):
-        pass
+        self.setRange(1,5000,7000)
+        self.setSpeed(1,1000)
+        self.setTarget(1,6000)
 
     def resetAll(self):
         self.setSpeed(3,1000)
-        self.setTarget(3,4000)
+        self.setTarget(3,6000)
         self.setSpeed(4,1000)
-        self.setTarget(4,4000)
+        self.setTarget(4,6000)
         self.setSpeed(0,1000)
-        self.setTarget(0,4500)
+        self.setTarget(0,6000)
         self.setSpeed(2,1000)
         self.setTarget(2,6000)
+        self.setSpeed(1,1000)
+        self.setTarget(1,6000)
 
 
 m = Controller()
-#m.setSpeed(3,1000)
-#m.setTarget(3,4000) #put all init conditions here
-#m.rotateTorso()
+m.resetAll()
 while True:
     x = input()
     if(x == 'w'):
+        m.moveForward()
         print("moving forward")
     elif(x == 'a'):
-        m.stopMotion()
+        #m.stopMotion()
         m.turnLeft()
         print("turn left")
     elif(x == 's'):
+        m.moveBackward()
         print("moving backward")
     elif(x == 'd'):
-        m.stopMotion()
+        #m.stopMotion()
         m.turnRight()
         print("turn right")
+    elif(x =='q'):
+        m.stopMotion()
+        print("stopping")
 
 
     elif(x == 'b'):
-        self.setSpeed(0,1000)
-        self.setTarget(0,3000)
+        m.setSpeed(0,1000)
+        m.setTarget(0,3000)
         print("twist left")
     elif(x == 'n'):
-        self.setSpeed(0,1000)
-        self.setTarget(0,4500)
+        m.setSpeed(0,1000)
+        m.setTarget(0,6000)
         print("twist center")
     elif(x == 'm'):
-        self.setSpeed(0,1000)
-        self.setTarget(0,9000)
+        m.setSpeed(0,1000)
+        m.setTarget(0,9000)
         print("twist right")
 
 
